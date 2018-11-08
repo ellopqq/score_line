@@ -7,7 +7,8 @@ import xlrd
 print(u"人这一生")
 print(u"           选择往往比努力更重要\n")
 
-data = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\2019guokao.xls')
+#data = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\2019guokao.xls')
+data = xlrd.open_workbook(r'C:\score_learn\python27\database\2019guokao.xls')
 
 table = data.sheet_by_index(0)   #read first sheet
 nrows = table.nrows
