@@ -2,11 +2,12 @@
 #coding=utf-8
 #from reportlab.pdfgen import canvas
 #https://www.cnblogs.com/hujq1029/p/7767980.html
-#http://www.downcc.com/k/ttfziti/   ×ÖÌåÏÂÔØ
+#http://www.downcc.com/k/ttfziti/   å­—ä½“ä¸‹è½½
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-pdfmetrics.registerFont(TTFont('song', "C:\score_learn\python27\source_code\python27\GB2312.ttf"))
+#pdfmetrics.registerFont(TTFont('song', r"C:\score_learn\python27\source_code\python27\GB2312.ttf"))
+pdfmetrics.registerFont(TTFont('song', r"C:\tools\ziti\GB2312.ttf"))
 
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import Paragraph,SimpleDocTemplate
@@ -14,29 +15,24 @@ from reportlab.lib import  colors
 
 Style=getSampleStyleSheet()
 
-bt = Style['Normal']     #×ÖÌåµÄÑùÊ½
-bt.fontName='song'    #Ê¹ÓÃµÄ×ÖÌå
-bt.fontSize=14            #×ÖºÅ
-bt.wordWrap = 'CJK'    #¸ÃÊôĞÔÖ§³Ö×Ô¶¯»»ĞĞ£¬'CJK'ÊÇÖĞÎÄÄ£Ê½»»ĞĞ£¬ÓÃÓÚÓ¢ÎÄÖĞ»á½Ø¶Ïµ¥´ÊÔì³ÉÔÄ¶ÁÀ§ÄÑ£¬¿É¸ÄÎª'Normal'
-bt.firstLineIndent = 32  #¸ÃÊôĞÔÖ§³ÖµÚÒ»ĞĞ¿ªÍ·¿Õ¸ñ
-bt.leading = 20             #¸ÃÊôĞÔÊÇÉèÖÃĞĞ¾à
+bt = Style['Normal']     #å­—ä½“çš„æ ·å¼
+bt.fontName='song'    #ä½¿ç”¨çš„å­—ä½“
+bt.fontSize=10            #å­—å·
+bt.wordWrap = 'CJK'    #è¯¥å±æ€§æ”¯æŒè‡ªåŠ¨æ¢è¡Œ,CJKæ˜¯ä¸­æ–‡æ¨¡å¼ä¸‹æ¢è¡Œï¼Œç”¨äºè‹±æ–‡ä¼šæˆªæ–­å•è¯é€ æˆé˜…è¯»å›°éš¾ï¼Œå¯ä»¥æ”¹æˆ'Noraml'
+bt.firstLineIndent = 2  #è¯¥å±æ€§æ”¯æŒç¬¬ä¸€è¡Œå¼€å¤´ç©ºæ ¼
+bt.leading = 20             #è¯¥å±æ€§æ˜¯è®¾ç½®è¡Œè·
 
 ct=Style['Normal']
 # ct.fontName='song'
 ct.fontSize=12
-ct.alignment=1             #¾ÓÖĞ
+ct.alignment=0             #å±…ä¸­
 
 ct.textColor = colors.red
 
-my_str = u"ÑîÓîÕÜÊÇ¸öºÃ±¦±¦£¬ÓĞ¸öºÃ°Ö°ÖºÃÂèÂè£¡"
+my_str = u'''äººè¿™ä¸€ç”Ÿï¼Œé€‰æ‹©å¾€å¾€æ¯”åŠªåŠ›æ›´é‡è¦ï¼'''
+my_str1 = u"å“ˆå“ˆï¼Œæ­å–œï¼Œä½ æˆåŠŸäº†ä¸€åŠ"
 t = Paragraph(my_str, bt)
+t1 = Paragraph(my_str1, bt)
 pdf=SimpleDocTemplate('ppff.pdf')
-pdf.multiBuild([t])
-'''
-def hello():
-    c = canvas.Canvas("helloworld.pdf")
-    c.drawString(100,100,"ÄãºÃ£¡")
-    c.showPage()
-    c.save()
-hello()
-'''
+pdf.multiBuild([t,t1])
+
