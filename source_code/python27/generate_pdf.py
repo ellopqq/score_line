@@ -15,4 +15,4 @@ def generate_p(name_p,elements_p):
     pdf = SimpleDocTemplate(name_p+'.pdf')
     pdf.build(elements_p)
 
-generate_p(u'刘同娟 1', elements.elements_pdf)
+generate_p(u'刘同娟 ', elements.elements_pdf)
