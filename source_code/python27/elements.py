@@ -10,6 +10,7 @@ from reportlab.lib.styles import ParagraphStyle
 from function_lib import insert_space
 from pdf_input import pdf_name_line, pdf_birth_line,pdf_education_line
 from pdf_input import pdf_area_line, pdf_certificate_line,pdf_san_line,pdf_domicile_line
+from pdf_table import table_job
 
 elements_pdf = []
 pdfmetrics.registerFont(TTFont('song', r"C:\tools\ziti\GB2312.ttf"))
@@ -72,6 +73,8 @@ elements_pdf.append(Spacer(0,7))
 elements_pdf.append(Paragraph(pdf_area_line,Style['pdf_Body']))
 elements_pdf.append(Spacer(0,7))
 elements_pdf.append(Paragraph(pdf_certificate_line,Style['pdf_Body']))
+elements_pdf.append(Spacer(0,7))
+elements_pdf.append(table_job)
 
 
 
