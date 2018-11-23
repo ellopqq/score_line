@@ -58,11 +58,11 @@ pdf_west = u'大学生志愿服务西部计划：'+ pdf_input_info['is_west']
 pdf_village = u'大学生村官： '+ pdf_input_info['is_village'] + insert_space(6)
 pdf_san_line = pdf_san + pdf_village + pdf_west
 
-pdf_domicile_line = u'户籍所在地： '+ pdf_input_info['domicile']
+pdf_domicile_line = u'户籍所在地\0： '+ pdf_input_info['domicile']
 
-pdf_area_line = u'报名地区： '+ pdf_input_info['application_area']
+pdf_area_line = u'报名地区\0\0： '+ pdf_input_info['application_area']
 
-pdf_certificate_line = u'所获证书： '+ pdf_input_info['certificate']
+pdf_certificate_line = u'所获证书\0\0： '+ pdf_input_info['certificate']
 
 
 

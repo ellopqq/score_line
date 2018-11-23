@@ -53,6 +53,7 @@ Style.add(ParagraphStyle(name='pdf_Body',
 pdf_Title = u"上岸报考分析报告"
 pdf_Begin = u"人这一生，选择往往比努力更重要！"
 pdf_infor = u'基本信息'
+pdf_job = u'岗位匹配'
 
 elements_pdf.append(Paragraph(pdf_Title,Style['pdf_Title']))
 elements_pdf.append(Spacer(0,20))
@@ -73,6 +74,8 @@ elements_pdf.append(Spacer(0,7))
 elements_pdf.append(Paragraph(pdf_area_line,Style['pdf_Body']))
 elements_pdf.append(Spacer(0,7))
 elements_pdf.append(Paragraph(pdf_certificate_line,Style['pdf_Body']))
+elements_pdf.append(Spacer(0,7))
+elements_pdf.append(Paragraph(pdf_job,Style['pdf_Info']))
 elements_pdf.append(Spacer(0,7))
 elements_pdf.append(table_job)
 
