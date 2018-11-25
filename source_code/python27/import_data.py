@@ -17,7 +17,7 @@ flag = 0
 for i in range(nrows):
     oneRow = table.row_values(i)    #read a row, begin from 0
     for j in range(ncols):
-        if oneRow[j] == u"专业":
+        if oneRow[j] == u"工作地点":
             print(u"专业一栏出现第在%d行%d列" % (i,j))
             flag = 1
             break
@@ -34,3 +34,5 @@ for i in range(ncols):
     
 print(u"一共有%d行" % nrows)
 print(u"一共有%d列" % ncols)
+
+print(table.cell(3,2).value)
