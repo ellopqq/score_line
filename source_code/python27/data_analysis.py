@@ -2,6 +2,7 @@
 #coding=utf-8
 
 import xlrd
+import re
 
 job_area_index = 20
 job_department_index = 1
@@ -11,11 +12,13 @@ job_major_index = 12
 job_edu_index = 13
 job_num_index = 11
 
-
-
 Major_Enable = 1
 
-source_data_fd = xlrd.open_workbook(r'C:\score_learn\python27\database\2019guokao.xls')
+job_major_test = u'生物医学工程'
+
+#source_data_fd = xlrd.open_workbook(r'C:\score_learn\python27\database\2019guokao.xls')
+source_data_fd = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\2019guokao.xls')
+
 sheet_num = len(source_data_fd.sheet_names())
 #sheet_num = 1
 
@@ -25,8 +28,12 @@ def table_elements_process(t_elements):
     while i<8:
         ele_len = len(t_elements[i])
         ele_list = list(t_elements[i])
-        if i == 4:
+        if i == 0:
+            ele_num = 4
+        elif i == 4:
             ele_num = 12
+        elif i == 5:
+            ele_num = 5
         else:
             ele_num = 8
         
@@ -34,19 +41,17 @@ def table_elements_process(t_elements):
             elements_processed.append(t_elements[i])
         else:           
             ele_pos = ele_num
-            count = 0
             while ele_len >= ele_num+1:
                 ele_list.insert(ele_pos, '\n')
                 ele_len = ele_len - ele_num
-                count = count + 1
-                ele_pos = ele_pos + ele_num + count
+                ele_pos = ele_pos + ele_num + 1
             elements_processed.append(''.join(ele_list))
         i = i + 1
     return elements_processed
 
 def major_analysis(data_string):
     major_flag = 0
-    if data_string == u'不限':
+    if re.search(job_major_test, data_string):
         major_flag = 1
     return major_flag
         

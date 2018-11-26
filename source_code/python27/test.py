@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #coding=utf-8
+
+import re
 '''
 from reportlab.pdfgen import canvas  
 from reportlab.lib.units import cm  
@@ -13,7 +15,7 @@ c.save()
     
 # Sample platypus document
 # From the FAQ at reportlab.org/oss/rl-toolkit/faq/#1.1
-
+'''
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.rl_settings import defaultPageSize
@@ -33,3 +35,26 @@ def go():
     
 if __name__ == "__main__":
     go()
+'''
+
+
+test = u'正则表达式'
+if re.search(u'表达式', test):
+    print('ok')
+else:
+    print('failed')
+    
+a_dict = {u'司法助理': u'法律务实类', u'法律文秘': u'法律务实类', u'司法警务': u'法律务实类'}
+
+
+a_dict1 = {u'法律务实类': u'法律大类'}
+
+key = a_dict[u'法律文秘']
+print(key)
+
+key1 = a_dict1[key]
+print(key1)
+
+
+
+

@@ -13,14 +13,10 @@ from data_analysis import analysis_data
 pdfmetrics.registerFont(TTFont('song', r"C:\tools\ziti\GB2312.ttf"))
 
 def table_model(data):       
-    #dis_list = []
-    #for x in data:
-        # dis_list.append(map(lambda i: Paragraph('%s' % i, cn), x))
-    #    dis_list.append(x)
-    column1_width = 0.8*inch
-    column2_width = 1.0*inch
-    column3_width = 1.0*inch
-    column4_width = 1.0*inch
+    column1_width = 0.55*inch
+    column2_width = 0.95*inch
+    column3_width = 0.95*inch
+    column4_width = 0.95*inch
     column5_width = 1.46*inch
     column6_width = 0.6*inch
     column7_width = 0.4*inch
@@ -44,7 +40,7 @@ job_area = u'内蒙古'
 job_department =  u'国家统计局内蒙古调查总队'
 job_division = u'国家统计局内蒙古调查总队'
 job_stage = u'达拉特调查队业务科室科员（1）'
-job_major = u'经济学类，统计学类，科学技术哲学，逻辑学，伦理学，生物医学工程'
+job_major = u'生物医学工程'
 job_edu = u'本科及以上'
 job_num = u'1'
 job_suitability = u'高'
