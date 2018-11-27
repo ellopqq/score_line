@@ -3,6 +3,7 @@
 
 import xlrd
 import re
+from input_analysis import get_major_category
 
 job_area_index = 20
 job_department_index = 1
@@ -50,9 +51,19 @@ def table_elements_process(t_elements):
     return elements_processed
 
 def major_analysis(data_string):
-    major_flag = 0
-    if re.search(job_major_test, data_string):
-        major_flag = 1
+    major_flag = 4
+    major_category = get_major_category()
+    len_major = len(major_category)
+    while len_major > 0:
+        if re.search(major_category[len_major][0], data_string):
+            major_flag = 1
+            break
+        elif re.search(major_category[len_major][1], data_string):
+            major_flag = 2
+            break
+        elif re.search(major_category[len_major][2], data_string):
+            major_flag = 3
+            break
     return major_flag
         
 
