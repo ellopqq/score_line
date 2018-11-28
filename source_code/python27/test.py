@@ -2,6 +2,7 @@
 #coding=utf-8
 
 import re
+import xlrd
 '''
 from reportlab.pdfgen import canvas  
 from reportlab.lib.units import cm  
@@ -45,23 +46,28 @@ if re.search(u'表达式', test):
 else:
     print('failed')
 '''
-string = u'abcd、efgh、ijk'
-pattern = re.compile(u'、+abcd、?')
-if pattern.search(string):
+source_data_fd = xlrd.open_workbook(r'C:\score_learn\python27\database\2019guokao.xls')
+table = source_data_fd.sheet_by_index(0)
+test_string = table.cell(3, 12).value
+
+ele_list = list(test_string)
+ele_list.insert(len(ele_list), u'、')
+ele_list.insert(0, u'、')
+test_string = ''.join(ele_list)
+print(test_string)
+#string = u'abcd、efgh、ijk'
+target_string = u'哲学'
+#u'[、]+' + target_string + u'[、]+' + u'|'+ u'^' + target_string + u'[、]+'
+#u'[、]+' + target_string + u'[、]+' + u'|'+ u'^' + target_string + u'[、]+' +  u'|' + u'[、]+' + target_string + u'$'
+pattern = re.compile(u'[、]+' + target_string + u'[、]+')
+pattern1 = re.compile(u'^' + target_string + u'[、]+')
+pattern2 = re.compile(u'[、]+' + target_string + u'$')
+if pattern.search(test_string):
     print('match')
 else:
     print('failed')
     
-a_dict = {u'司法助理': u'法律务实类', u'法律文秘': u'法律务实类', u'司法警务': u'法律务实类'}
 
-
-a_dict1 = {u'法律务实类': u'法律大类'}
-
-key = a_dict[u'法律文秘']
-print(key)
-
-key1 = a_dict1[key]
-print(key1)
 
 
 
