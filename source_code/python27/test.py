@@ -38,9 +38,17 @@ if __name__ == "__main__":
 '''
 
 
+'''
 test = u'正则表达式'
 if re.search(u'表达式', test):
     print('ok')
+else:
+    print('failed')
+'''
+string = u'abcd、efgh、ijk'
+pattern = re.compile(u'、+abcd、?')
+if pattern.search(string):
+    print('match')
 else:
     print('failed')
     

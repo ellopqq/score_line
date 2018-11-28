@@ -3,7 +3,7 @@
 
 import xlrd
 import re
-from input_analysis import get_major_category
+from input_analysis import major_category_info
 
 job_area_index = 20
 job_department_index = 1
@@ -51,19 +51,23 @@ def table_elements_process(t_elements):
     return elements_processed
 
 def major_analysis(data_string):
-    major_flag = 4
-    major_category = get_major_category()
-    len_major = len(major_category)
-    while len_major > 0:
-        if re.search(major_category[len_major][0], data_string):
+    major_flag = 0
+    len_major = len(major_category_info)
+    if len_major > 0:
+        if re.search(major_category_info[0][0], data_string):
             major_flag = 1
-            break
-        elif re.search(major_category[len_major][1], data_string):
-            major_flag = 2
-            break
-        elif re.search(major_category[len_major][2], data_string):
-            major_flag = 3
-            break
+            return major_flag
+        for i in range(len(major_category_info[1])):
+            if re.search(major_category_info[1][i], data_string):
+                major_flag = 2
+                return major_flag
+        for i in range(len(major_category_info[2])):
+            if re.search(major_category_info[2][i], data_string):
+                major_flag = 3
+                return major_flag
+    if re.search(u'不限', data_string):
+        major_flag = 4
+        return major_flag
     return major_flag
         
 
@@ -74,7 +78,7 @@ def analysis_data(data_list):
         for j in range(nrows):
             target_data_list = []
             m_flag = major_analysis(table.cell(j, job_major_index).value)
-            if m_flag == 1:
+            if m_flag != 0:
                 target_data_list.append(table.cell(j, job_area_index).value)
                 target_data_list.append(table.cell(j, job_department_index).value)
                 target_data_list.append(table.cell(j, job_division_index).value)
@@ -87,4 +91,17 @@ def analysis_data(data_list):
             else:
                 continue
     return data_list
+
+'''
+print(major_analysis(u'不限'))
+print(major_analysis(u'工学'))
+print(major_analysis(u'理学'))
+print(major_analysis(u'医学'))
+print(major_analysis(u'基础医学类'))
+print(major_analysis(u'生物医学工程类'))
+print(major_analysis(u'生物科学类'))
+print(major_analysis(u'生物医学工程'))
+print(major_analysis(u'生物工程类'))
+'''
+
 

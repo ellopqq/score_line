@@ -43,6 +43,8 @@ def get_major_category():
                                                        
     return major_category
 
+major_category_info = get_major_category()
+
 '''
 a_re = get_major_category()
 print(a_re[2][0])
