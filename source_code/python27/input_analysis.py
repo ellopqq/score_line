@@ -14,8 +14,7 @@ def get_major_category():
     get_major_cate1 = []
     get_major_cate2 = []
     flag = 0
-    #major_fd = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\guokao_major.xlsx')
-    major_fd = xlrd.open_workbook(r'C:\score_learn\python27\database\guokao_major.xlsx')
+    major_fd = xlrd.open_workbook(r'C:\project\io_file\database\guokao_major.xlsx')
     major_table = major_fd.sheet_by_index(0)
     major_nrows = major_table.nrows
     if re.search(u'研究生', pdf_input_info['education']):

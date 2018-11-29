@@ -16,11 +16,8 @@ job_num_index = 11
 
 Major_Enable = 1
 
-job_major_test = u'生物医学工程'
-
-#source_data_fd = xlrd.open_workbook(r'C:\score_learn\python27\database\2019guokao.xls')
-source_data_fd = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\2019guokao.xls')
-processed_data_fd = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\source_code\python27\major_info.xls')
+source_data_fd = xlrd.open_workbook(r'C:\project\io_file\database\2019guokao.xls')
+processed_data_fd = xlrd.open_workbook(r'C:\project\io_file\database\major_info.xls')
 sheet_num = len(source_data_fd.sheet_names())
 #sheet_num = 1
 

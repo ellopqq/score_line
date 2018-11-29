@@ -58,9 +58,8 @@ def major_analysis_database(data_value):
         
                 
 workbook = xlwt.Workbook(encoding = 'utf-8')
-source_data_fd = xlrd.open_workbook(r'C:\Users\ellopqq\eclipse-workspace\score_line\database\2019guokao.xls')
+source_data_fd = xlrd.open_workbook(r'C:\project\io_file\database\2019guokao.xls')
 sheet_name_list = source_data_fd.sheet_names()
-#sheet_num = len(source_data_fd.sheet_names())
 for i in sheet_name_list:
     worksheet = workbook.add_sheet(i)
     table = source_data_fd.sheet_by_name(i)
@@ -71,7 +70,7 @@ for i in sheet_name_list:
         get_string = major_analysis_database(table.cell(j, row_col[1]).value)            
         worksheet.write(j, row_col[1], label = get_string)
     
-workbook.save('major_info.xls')
+workbook.save(r'C:\project\io_file\database\major_info.xls')
 
 
 
