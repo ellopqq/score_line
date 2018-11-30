@@ -119,8 +119,21 @@ def string_test():
         print(i)
     print(''.join(new_list))
 
+def get_chinese():
+#    get_string = u'本科专业：会计学、财务管理；研究生专业：会计学'
+#    get_string = u'中国少数民族语言文学(维吾尔语方向)'
+    get_string = u'法医学类'
+    if re.search(u'[\u4e00-\u9fa5]+', get_string):
+        print('match')
+    else:
+        print('fail')
+    get_ch = re.findall(u'[\u4e00-\u9fa5]+', get_string)
+    print(get_ch)
+    for i in get_ch:
+        print i
+    print(get_string)
 
-
+get_chinese()
 ''' 
 new_string = get_string.replace(u'本科', '')
 print new_string
